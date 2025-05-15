@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <title>{{ $title }}</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     @vite('resources/js/app.js')
     @vite('resources/css/app.css')
@@ -20,23 +20,14 @@
         ```
     -->
     <div class="min-h-full">
-        {{-- Using Old Include --}}
-        @include('layouts.partials.navbar')
+        <x-navbar />
 
-        {{-- Using Navbar Component --}}
-        {{-- <x-navbar/> --}}
-
-        <header class="bg-white shadow-sm">
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $title }}</h1>
-            </div>
-        </header>
-
-        {{-- Using Header Component --}}
-        {{-- <x-header :title="$title"/> --}}
+        <x-header :title="$title" />
 
         <main>
-            @yield('content')
+            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                {{ $slot }}
+            </div>
         </main>
     </div>
 </body>

@@ -23,3 +23,9 @@ Route::get('/contact', function () {
         'title' => "Contact"
     ]);
 });
+
+Route::get('/blog', function () {
+    return view('blog', [
+        'title' => "Blog"
+    ]);
+});
