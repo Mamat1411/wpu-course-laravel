@@ -13,7 +13,7 @@
                         <x-nav-link href="/" :current="request()->is('/')">
                             Home
                         </x-nav-link>
-                        <x-nav-link href="/blog" :current="request()->is('blog')">
+                        <x-nav-link href="/posts" :current="request()->is('posts')">
                             Blog
                         </x-nav-link>
                         <x-nav-link href="/about" :current="request()->is('about')">
@@ -116,7 +116,7 @@
             <x-nav-link class="block" href="/" :current="request()->is('/')">
                 Home
             </x-nav-link>
-            <x-nav-link class="block" href="/blog" :current="request()->is('blog')">
+            <x-nav-link class="block" href="/posts" :current="request()->is('posts')">
                 Blog
             </x-nav-link>
             <x-nav-link class="block" href="/about" :current="request()->is('about')">
