@@ -12,6 +12,11 @@ class Category extends Model
 
     protected $guarded = ['id'];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     /**
      * Get all of the posts for the Category
      *

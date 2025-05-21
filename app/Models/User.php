@@ -47,6 +47,11 @@ class User extends Authenticatable
         ];
     }
 
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
     /**
      * Get all of the posts for the User
      *
