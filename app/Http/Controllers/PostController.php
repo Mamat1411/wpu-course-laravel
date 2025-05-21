@@ -17,11 +17,14 @@ class PostController extends Controller
         return view('blog', [
             'title' => "Blog",
             'posts' => Post::latest()->paginate(6)
+            // 'posts' => Post::with(['author', 'category'])->latest()->paginate(6)
         ]);
     }
 
     public function authorIndex(User $user)
     {
+        // $posts = $user->posts->load('category', 'author');
+
         return view('blog', [
             'title' => count($user->posts) . " Articles by " . $user->name,
             'posts' => $user->posts()->latest()->paginate(6)
@@ -30,6 +33,8 @@ class PostController extends Controller
 
     public function categoryIndex(Category $category)
     {
+        // $posts = $category->posts->load('category', 'author');
+
         return view('blog', [
             'title' => count($category->posts) . " Articles in " . $category->name,
             'posts' => $category->posts()->latest()->paginate(6)
