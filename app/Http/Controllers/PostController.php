@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,6 +17,22 @@ class PostController extends Controller
         return view('blog', [
             'title' => "Blog",
             'posts' => Post::latest()->paginate(6)
+        ]);
+    }
+
+    public function authorIndex(User $user)
+    {
+        return view('blog', [
+            'title' => count($user->posts) . " Articles by " . $user->name,
+            'posts' => $user->posts()->latest()->paginate(6)
+        ]);
+    }
+
+    public function categoryIndex(Category $category)
+    {
+        return view('blog', [
+            'title' => count($category->posts) . " Articles in " . $category->name,
+            'posts' => $category->posts()->latest()->paginate(6)
         ]);
     }
 

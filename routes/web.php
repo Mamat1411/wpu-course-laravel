@@ -26,3 +26,10 @@ Route::get('/contact', function () {
 });
 
 Route::resource('posts', PostController::class);
+
+Route::group([
+    'as' => 'posts.'
+], function () {
+    Route::get('/author/{user:username}', [PostController::class, 'authorIndex'])->name('authorIndex');
+    Route::get('/category/{category:slug}', [PostController::class, 'categoryIndex'])->name('categoryIndex');
+});
