@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,10 +18,11 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $title = fake()->sentence(mt_rand(1, 8));
         return [
-            'title' => fake()->sentence(mt_rand(1, 5)),
-            'author' => fake()->name(),
-            'slug' => fake()->unique()->slug(mt_rand(1, 5), false),
+            'title' => $title,
+            'author_id' => User::inRandomOrder()->first()->id,
+            'slug' => Str::slug($title),
             'body' => fake()->realText()
         ];
     }
