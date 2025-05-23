@@ -19,7 +19,7 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        $title = fake()->sentence(mt_rand(1, 8));
+        $title = fake()->unique()->sentence(mt_rand(1, 8));
 
         // Using inRandomOrder Approach
         // return [
