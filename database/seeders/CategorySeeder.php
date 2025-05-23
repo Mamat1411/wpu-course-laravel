@@ -17,27 +17,32 @@ class CategorySeeder extends Seeder
 
         Category::create([
             'name' => 'Full Stack Programming',
-            'slug' => 'full-stack-programming'
+            'slug' => 'full-stack-programming',
+            'color' => 'bg-green-100 text-green-800'
         ]);
 
         Category::create([
             'name' => 'Back End Programming',
-            'slug' => 'back-end-programming'
+            'slug' => 'back-end-programming',
+            'color' => 'bg-red-100 text-red-800'
         ]);
 
         Category::create([
             'name' => 'Front End Programming',
-            'slug' => 'front-end-programming'
+            'slug' => 'front-end-programming',
+            'color' => 'bg-violet-100 text-violet-800'
         ]);
 
         Category::create([
             'name' => 'UI UX Design',
-            'slug' => 'ui-ux-design'
+            'slug' => 'ui-ux-design',
+            'color' => 'bg-orange-100 text-orange-800'
         ]);
 
         Category::create([
             'name' => 'Dev Ops',
-            'slug' => 'dev-ops'
+            'slug' => 'dev-ops',
+            'color' => 'bg-blue-100 text-blue-800'
         ]);
     }
 }
