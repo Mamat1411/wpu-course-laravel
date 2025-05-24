@@ -25,11 +25,11 @@ Route::get('/contact', function () {
     ]);
 });
 
-Route::resource('posts', PostController::class);
-
 Route::group([
     'as' => 'posts.'
 ], function () {
-    Route::get('/author/{user}', [PostController::class, 'authorIndex'])->name('authorIndex');
-    Route::get('/category/{category}', [PostController::class, 'categoryIndex'])->name('categoryIndex');
+    Route::get('/posts', [PostController::class, 'index'])->name('index');
+    Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
+    Route::get('/posts?author={user}', [PostController::class, 'index'])->name('authorIndex');
+    Route::get('/posts?category={category}', [PostController::class, 'index'])->name('categoryIndex');
 });
